@@ -28,7 +28,7 @@ class Widget(QWidget):
         self.max_element = self.spinbox2.value()
         self.spinbox2.valueChanged.connect(lambda: self.set_max_size(self.spinbox2.value()))
 
-        # вклдка 1
+        # вкладка 1
         self.button1 = self.findChild(QPushButton, "pushButton_1")
         self.button1.clicked.connect(lambda: self.tab1_button_click())
 
@@ -156,7 +156,7 @@ class Widget(QWidget):
         self.table3.item(1, 0).setTextAlignment(QtCore.Qt.AlignCenter)
 
         # названия строк
-        self.table3.setItem(0, 1, QTableWidgetItem("Слева напрвао"))
+        self.table3.setItem(0, 1, QTableWidgetItem("Слева направо"))
         self.table3.item(0, 1).setTextAlignment(QtCore.Qt.AlignCenter)
         self.table3.setItem(0, 2, QTableWidgetItem("Справа налево"))
         self.table3.item(0, 2).setTextAlignment(QtCore.Qt.AlignCenter)
@@ -387,8 +387,8 @@ class Widget(QWidget):
             graphic.plot(x, y2, pen=pg.mkPen("g", width=2), name="Делbтель 2")
             graphic.plot(x, y3, pen=pg.mkPen("y", width=2), name="Делитель 3")
             graphic.plot(x, y4, pen=pg.mkPen("r", width=2), name="Делитель 4")
-            graphic.setYRange(0, max(*y1, *y2, *y3, *y4) * 1.1)
-            graphic.setXRange(0, self.array_size)
+            graphic.setYRange(0, max(10, 1.1 * math.ceil(max(*y1, *y2, *y3, *y4, 1) / pow(10, math.ceil(math.log10(max(*y1, *y2, *y3, *y4, 1)) - 1))) * pow(10, math.ceil(math.log10(max(*y1, *y2, *y3, *y4, 1))) - 1)))
+            graphic.setXRange(0, max(1000, math.ceil(self.array_size) / pow(10, math.ceil(math.log10(self.array_size)) - 1) * pow(10, math.ceil(math.log10(self.array_size)) - 1)))
 
         except Exception as error:
             print(error)
@@ -411,8 +411,8 @@ class Widget(QWidget):
             graphic = self.graphic2
             graphic.plot(x, y1, pen=pg.mkPen("b", width=2), name="Справа", clear=True)
             graphic.plot(x, y2, pen=pg.mkPen("g", width=2), name="Слева")
-            graphic.setYRange(0, max(*y1, *y2) * 1.1)
-            graphic.setXRange(0, self.array_size)
+            graphic.setYRange(0, max(10, 1.1 * math.ceil(max(*y1, *y2, 1) / pow(10, math.ceil(math.log10(max(*y1, *y2, 1)) - 1))) * pow(10, math.ceil(math.log10(max(*y1, *y2, 1))) - 1)))
+            graphic.setXRange(0, max(1000, math.ceil(self.array_size) / pow(10, math.ceil(math.log10(self.array_size)) - 1) * pow(10, math.ceil(math.log10(self.array_size)) - 1)))
 
         except Exception as error:
             print(error)
@@ -436,8 +436,8 @@ class Widget(QWidget):
             graphic = self.graphic3
             graphic.plot(x, y1, pen=pg.mkPen("y", width=2), name="Слева направо", clear=True)
             graphic.plot(x, y2, pen=pg.mkPen("c", width=2), name="Справа налево")
-            graphic.setYRange(0, max(*y1, *y2) * 1.1)
-            graphic.setXRange(0, self.array_size)
+            graphic.setYRange(0, max(10, 1.1 * math.ceil(max(*y1, *y2, 1) / pow(10, math.ceil(math.log10(max(*y1, *y2, 1)) - 1))) * pow(10, math.ceil(math.log10(max(*y1, *y2, 1))) - 1)))
+            graphic.setXRange(0, max(1000, math.ceil(self.array_size) / pow(10, math.ceil(math.log10(self.array_size)) - 1) * pow(10, math.ceil(math.log10(self.array_size)) - 1)))
 
         except Exception as error:
             print(error)
@@ -466,8 +466,8 @@ class Widget(QWidget):
             graphic.plot(x, y2, pen=pg.mkPen("g", width=2), name="Множитель 2")
             graphic.plot(x, y3, pen=pg.mkPen("y", width=2), name="Множитель 3")
             graphic.plot(x, y4, pen=pg.mkPen("r", width=2), name="Множитель 4")
-            graphic.setYRange(0, max(*y1, *y2, *y3, *y4) * 1.1)
-            graphic.setXRange(0, self.array_size)
+            graphic.setYRange(0, max(10, 1.1 * math.ceil(max(*y1, *y2, *y3, *y4, 1) / pow(10, math.ceil(math.log10(max(*y1, *y2, *y3, *y4, 1)) - 1))) * pow(10, math.ceil(math.log10(max(*y1, *y2, *y3, *y4, 1))) - 1)))
+            graphic.setXRange(0, max(1000, math.ceil(self.array_size) / pow(10, math.ceil(math.log10(self.array_size)) - 1) * pow(10, math.ceil(math.log10(self.array_size)) - 1)))
 
         except Exception as error:
             print(error)
@@ -496,8 +496,8 @@ class Widget(QWidget):
             graphic.plot(x, y2, pen=pg.mkPen("g", width=2), name="Система 2")
             graphic.plot(x, y3, pen=pg.mkPen("y", width=2), name="Система 3")
             graphic.plot(x, y4, pen=pg.mkPen("r", width=2), name="Система 4")
-            graphic.setYRange(0, max(*y1, *y2, *y3, *y4) * 1.1)
-            graphic.setXRange(0, self.array_size)
+            graphic.setYRange(0, max(10, 1.1 * math.ceil(max(*y1, *y2, *y3, *y4, 1) / pow(10, math.ceil(math.log10(max(*y1, *y2, *y3, *y4, 1)) - 1))) * pow(10, math.ceil(math.log10(max(*y1, *y2, *y3, *y4, 1))) - 1)))
+            graphic.setXRange(0, max(1000, math.ceil(self.array_size) / pow(10, math.ceil(math.log10(self.array_size)) - 1) * pow(10, math.ceil(math.log10(self.array_size)) - 1)))
 
         except Exception as error:
             print(error)
@@ -550,8 +550,8 @@ class Widget(QWidget):
             graphic.plot(x, y3, pen=pg.mkPen("y", width=2), name="Метод свертывания")
             graphic.plot(x, y4, pen=pg.mkPen("k", width=2), name="Метод умножения")
             graphic.plot(x, y5, pen=pg.mkPen("m", width=2), name="Метод умножения")
-            graphic.setYRange(0, max(*y1, *y2, *y3, *y4) * 1.1)
-            graphic.setXRange(0, self.array_size)
+            graphic.setYRange(0, max(10, 1.1 * math.ceil(max(*y1, *y2, *y3, *y4, *y5, 1) / pow(10, math.ceil(math.log10(max(*y1, *y2, *y3, *y4, *y5, 1)) - 1))) * pow(10, math.ceil(math.log10(max(*y1, *y2, *y3, *y4, *y5, 1))) - 1)))
+            graphic.setXRange(0, max(1000, math.ceil(self.array_size) / pow(10, math.ceil(math.log10(self.array_size)) - 1) * pow(10, math.ceil(math.log10(self.array_size)) - 1)))
 
         except Exception as error:
             print(error)
